@@ -11,7 +11,6 @@ void solve() {
     int pos = 0;
     int sum=0;
     int count1=0;
-    int count2=0;
 
     for(int i =0; i<n; i++)
     {
@@ -26,31 +25,13 @@ void solve() {
         }
         sum += a[i];
     }
-    if(sum > 0 && neg%2!=0)
+    while(pos<neg || neg%2==1)
     {
-        cout << "1" << endl;
-        return;
+        pos++;
+        neg--;
+        count1++;
     }
-    else if(sum > 0 && neg%2==0)
-    {
-        cout << "0" << endl;
-        return;
-    }
-    else if(sum < 0)
-    {
-        count1 = -sum;
-        sum = -sum;
-        if(sum%2!=0)
-        {
-            count2++;
-        }
-        else
-        {
-            count2 += (sum+1)/2;
-        } 
-    }
-
-    cout << max(count1, count2)  << endl;
+    cout << count1 << endl;
 }
 
 int main() {
